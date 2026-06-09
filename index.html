@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PropAI — Real Estate Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Playfair Display (luxury serif) + DM Sans (clean body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- ── SIDEBAR ─────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon"><i class="ph-bold ph-buildings"></i></span>
+      <span class="logo-text">Prop<em>AI</em></span>
+    </div>
+
+    <!-- Status badge -->
+    <div class="status-card" id="statusCard">
+      <div class="status-dot" id="statusDot"></div>
+      <div class="status-info">
+        <span class="status-label">Backend</span>
+        <span class="status-value" id="statusText">Connecting…</span>
+      </div>
+    </div>
+
+    <!-- Sources loaded -->
+    <div class="sidebar-section">
+      <p class="sidebar-heading">Knowledge Sources</p>
+      <ul class="source-list" id="sourceList">
+        <li class="source-item skeleton"></li>
+        <li class="source-item skeleton"></li>
+        <li class="source-item skeleton"></li>
+      </ul>
+    </div>
+
+    <!-- Quick question chips -->
+    <div class="sidebar-section">
+      <p class="sidebar-heading">Try Asking</p>
+      <div class="chips">
+        <button class="chip" data-q="What is RERA and why is it important?">What is RERA?</button>
+        <button class="chip" data-q="What documents are needed to buy a flat in India?">Flat documents?</button>
+        <button class="chip" data-q="Explain stamp duty and how it is calculated.">Stamp duty?</button>
+        <button class="chip" data-q="What is the difference between carpet area, built-up area, and super built-up area?">Carpet area?</button>
+        <button class="chip" data-q="How do home loans work in India?">Home loans?</button>
+        <button class="chip" data-q="What is the circle rate in real estate?">Circle rate?</button>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn">
+      <i class="ph-bold ph-trash"></i> Clear Chat
+    </button>
+  </aside>
+
+  <!-- ── MAIN CHAT AREA ──────────────────────────── -->
+  <main class="chat-main">
+
+    <!-- Header -->
+    <header class="chat-header">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="ph-bold ph-list"></i>
+      </button>
+      <div class="header-title">
+        <h1>Real Estate <span>Assistant</span></h1>
+        <p>Powered by Groq Llama 3 · Indian Real Estate Expert</p>
+      </div>
+    </header>
+
+    <!-- Chat messages container -->
+    <div class="chat-messages" id="chatMessages">
+
+      <!-- Welcome message (shown when chat is empty) -->
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon"><i class="ph-bold ph-house-line"></i></div>
+        <h2>Ask me anything about<br/>Indian Real Estate</h2>
+        <p>I can help with RERA, stamp duty, carpet area, home loans,
+           property documents, legal queries, and more.</p>
+      </div>
+
+    </div>
+
+    <!-- Input area -->
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="userInput"
+          placeholder="Ask a real estate question…"
+          rows="1"
+          maxlength="500"
+        ></textarea>
+        <button class="send-btn" id="sendBtn" aria-label="Send">
+          <i class="ph-bold ph-paper-plane-tilt"></i>
+        </button>
+      </div>
+      <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+    </div>
+
+  </main>
+
+  <!-- ── MOBILE SIDEBAR OVERLAY ─────────────────── -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
